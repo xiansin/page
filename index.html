@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
-		 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 		<title>视频播放</title>
-		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
-		<link rel="stylesheet" type="text/css" href="css/common.css"/>
-		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
 		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 	</head>
+
 	<body>
 		<div class="container-fluid view-video-main">
 			<!--问诊介绍-->
@@ -20,14 +22,14 @@
 					<div class="small-angle position-absolute-top-right"></div>
 					<a class="header-btn col-md-3 no-padding" href="javascript:void(0)">
 						<div class="header-btn-text">回到地图大数据</div>
-						<img src="images/view-video-intro-btn.png"/>
+						<img src="images/view-video-intro-btn.png" />
 					</a>
 					<!--问诊介绍 header middle-->
 					<div class="header-center col-md-2 no-padding">
 						<div class="header-center-angle position-absolute-top-left" style="left: 12px;"></div>
-						<img src="images/header-center-bg.png" style="position: absolute; left: -3px;top: 10px;"/>
+						<img src="images/header-center-bg.png" style="position: absolute; left: -3px;top: 10px;" />
 						<div class="header-center-angle-1 position-absolute-bottom-left" style="top: 49px;left: -22px;"></div>
-					</div>		
+					</div>
 					<!--问诊介绍 header right-->
 					<div class="header-right col-md-7 no-padding">&nbsp;</div>
 				</div>
@@ -38,13 +40,13 @@
 					<div class="intro-left pull-left"></div>
 					<!--网点信息-->
 					<div class="branch-info intro-content-width pull-left">
-						<p class="no-margin font-s-20">贵阳市   南明区网点</p>
+						<p class="no-margin font-s-20">贵阳市 南明区网点</p>
 						<p class="word-c-white no-margin font-s-14">2017-11-29 09:21:35</p>
 					</div>
 					<!--医生信息-->
 					<div class="doc-info intro-content-width pull-left font-s-14">
 						<p class="no-margin">贵阳互联网医院</p>
-						<p class="word-c-white no-margin">小小123医生  主任护师  外科</p>
+						<p class="word-c-white no-margin">小小123医生 主任护师 外科</p>
 					</div>
 					<!--地图信息-->
 					<div class="map-info intro-content-width pull-left" id="map_info"></div>
@@ -55,35 +57,74 @@
 					<div class="angle rotate270 position-absolute-bottom-left"></div>
 					<div class="angle rotate180 position-absolute-bottom-right"></div>
 				</div>
-				
+
 			</div>
 			<!--问诊详情-->
 			<div class="view-video-detail col-md-8 no-padding">
 				<div class="angle position-absolute-top-left"></div>
 				<div class="angle rotate90 position-absolute-top-right"></div>
-			
+
 				<!--问诊详情  header btn-->
 				<div class="detail-header">
 					<div class="detail-header-text font-s-20">视频播放区</div>
-					<img src="images/detail-header-bg-1.png"/>
+					<img src="images/detail-header-bg-1.png" />
 				</div>
-				
+
 				<div class="view-video-detail-bg pull-left"></div>
 				<div class="detail-content pull-left">
 					<!--医生视频-->
-                    <video id="doc" class="video-doc" autoplay="">
-                        <source src="https://test.guijk.com/downloadvedio/index.php?date=20171129&name=1511918495476824_1" type="video/webm">
-                    </video>
-                    <!--用户视频-->
-                    <video id="user" class="video-user" autoplay>
-                        <source src="https://test.guijk.com/downloadvedio/index.php?date=20171129&name=1511918495476824_2" type="video/webm">
-                    </video>
+					<video id="doc" class="video-doc" autoplay="" onplay="position()">
+						<source src="https://test.guijk.com/downloadvedio/index.php?date=20171129&name=1511918495476824_1" type="video/webm">
+					</video>
+					<!--用户视频-->
+					<video id="user" class="video-user" autoplay>
+						<source src="https://test.guijk.com/downloadvedio/index.php?date=20171129&name=1511918495476824_2" type="video/webm">
+					</video>
 				</div>
 				<div class="view-video-detail-bg pull-right"></div>
-				
+
 				<div class="angle rotate270 position-absolute-bottom-left"></div>
 				<div class="angle rotate180 position-absolute-bottom-right"></div>
 			</div>
 		</div>
 	</body>
+	<script type="text/javascript">
+		/**
+		 * 重新定位 用户视频 保证用户视频贴合医生视频
+		 */
+		function position() {
+			var $video = $('video');
+			var $detail = $(".detail-content");
+			var $user = $("#user");
+			// 视频实际高度和分辨率
+			var videoH = $video[0].videoHeight;
+			var videoW = $video[0].videoWidth;
+			var videoRatio = videoH / videoW;
+			// 父类 宽高
+			var detailH = $detail.height();
+			var detailW = $detail.width();
+			// user 初始 left 距离
+			var userL = 19;
+
+			if(detailH / detailW > videoRatio) {
+				// 实际视频播放宽度
+				var realVideoW = detailW;
+				// 实际user 距父类左边距离
+				var realUserL = userL;
+
+				$user.css("left", realUserL);
+			} else {
+				// 实际视频播放宽度
+				var realVideoW = detailH / videoRatio;
+				// 实际user 距父类左边距离
+				var realUserL = (detailW - realVideoW) / 2 + userL;
+
+				$user.css("left", realUserL);
+			}
+		}
+		window.onresize = function() {
+			position()
+		};
+	</script>
+
 </html>

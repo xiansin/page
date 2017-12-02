@@ -254,6 +254,7 @@ body{
 	overflow: hidden;
 }
 .view-video-main>.view-video-detail >.detail-content>.video-doc{
+	height: 100%;
 	width: 100%;
 }
 .view-video-main>.view-video-detail >.detail-content>.video-user{
