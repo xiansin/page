@@ -90,15 +90,27 @@ body{
 	background: url(../images/view-video-intro-content-bg.png) no-repeat right center ;
 }
 .view-video-intro > .view-video-intro-header{
-	height: 10%;
+	height: 59px;
 	
 }
 .view-video-intro > .view-video-intro-header > .header-btn{
 	color: #51ffff;
 	width: 60%;
+	cursor: pointer;
+}
+.view-video-intro > .view-video-intro-header > .header-btn >.header-btn-text{
+	position: absolute; 
+	width: 100%; 
+	height: 48px;
+	color: #51ffff;
+	text-align: center;
+	line-height: 48px;
+	font-weight: normal;
+	font-size: 18px;
+	letter-spacing: 0.05em;
 }
 .view-video-intro > .view-video-intro-header > .header-btn >img{
-	height: 100%;
+	height: 48px;
     width: 100%;
 }
 .view-video-intro > .view-video-intro-header > .header-center{
@@ -126,6 +138,9 @@ body{
 
 .view-video-intro >.view-video-intro-content{
 	height: 90%;
+	height: calc(100% - 60px);
+	height: -moz-calc(100% - 60px);
+	height: -webkit-calc(100% - 60px);
 	background: url(../images/view-video-intro-content-bottom-bg.png) no-repeat bottom center;
 }
 .view-video-intro >.view-video-intro-content> .intro-left{
