@@ -159,9 +159,53 @@ body{
 	background: url(../images/view-video-intro-content-bg.png) no-repeat center ;
 	height: 100%;
 	width: 3px;
+	position: relative;
 }
-
-
+.view-video-intro >.view-video-intro-content> .intro-content-width{
+	width: 88%;
+	/*外边距 20px *2 左边背景 3px(div 宽度) 右边背景 1px(实际背景)*/
+	width: calc(100% - (10px * 2) - 4px);
+	width: -webkit-calc(100% - (10px * 2) - 4px);
+	width: -moz-calc(100% -  (10px * 2) - 4px);
+	margin: 0 10px;
+}
+.view-video-intro >.view-video-intro-content> .branch-info{
+	position: relative;
+	color: #0096ff;
+	font-size: 22px;
+	font-weight: 600;
+}
+.view-video-intro >.view-video-intro-content> .branch-info >p:nth-last-child(1){
+	font-weight: normal;
+	margin-top: 5px !important;
+}
+.view-video-intro >.view-video-intro-content> .doc-info{
+	background: rgba(21,111,245,0.1);
+    border-left: 3px solid #FF6900;
+    line-height: 24px;
+    text-align: justify;
+    margin-top: 10px !important;
+    color: #ffffff;
+    padding: 8px 0 8px 15px;
+}
+.view-video-intro >.view-video-intro-content> .map-info {
+    background: rgba(4,66,160,0.1);
+    max-height: 200px;
+    height: 200px;
+    margin-top: 10px !important;
+}
+.view-video-intro >.view-video-intro-content>.intro-desc {
+    margin-top: 10px !important;
+    color: #77bbec;
+    line-height: 22px;
+    background: rgba(21,111,255,0.1);
+    padding: 15px 10px;
+    height: 120px;
+	height: calc(100% - 31px - 53px - 64px - 200px - (11px * 4));
+	height: -moz-calc(100% - 31px - 53px - 64px - 200px - (11px * 4));
+	height: -webkit-calc(100% - 31px - 53px - 64px - 200px - (11px * 4));
+    text-overflow: ellipsis;
+}
 /**视频右侧**/
 .view-video-main>.view-video-detail{
 	width: 70%;
