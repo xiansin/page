@@ -143,6 +143,18 @@ body{
 	height: -webkit-calc(100% - 60px);
 	background: url(../images/view-video-intro-content-bottom-bg.png) no-repeat bottom center;
 }
+.view-video-intro >.view-video-intro-content> .intro-top{
+	background: url(../images/view-video-intro-content-top-bg.png) no-repeat center ;
+	width: 48%;
+	width: calc(100% - 42% - 31px);
+	width: -webkit-calc(100% - 42% - 31px);
+	width: -moz-calc(100% - 42% - 31px);
+	height: 3px;
+	position: relative;
+    top: -30px;
+    left: 17px;
+    overflow: hidden;
+}
 .view-video-intro >.view-video-intro-content> .intro-left{
 	background: url(../images/view-video-intro-content-bg.png) no-repeat center ;
 	height: 100%;
