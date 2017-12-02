@@ -75,7 +75,7 @@
 				<div class="view-video-detail-bg pull-left"></div>
 				<div class="detail-content pull-left">
 					<!--医生视频-->
-					<video id="doc" class="video-doc" autoplay="" onplay="position()">
+					<video id="doc" class="video-doc" autoplay="">
 						<source src="https://test.guijk.com/downloadvedio/index.php?date=20171129&name=1511918495476824_1" type="video/webm">
 					</video>
 					<!--用户视频-->
@@ -92,11 +92,21 @@
 	</body>
 	<script src="https://api.map.baidu.com/api?v=2.0&ak=IiHxNA6cDzhpckH6kLjcXkLC"></script>
 	<script type="text/javascript" src="js/echarts.min.js"></script>
-<script type="text/javascript" src="js/bmap.min.js"></script>
-<script type="text/javascript" src="js/viewInquiryEcharts.js"></script>
+	<script type="text/javascript" src="js/bmap.min.js"></script>
+	<script type="text/javascript" src="js/viewInquiryEcharts.js"></script>
 	<script type="text/javascript">
 	
-		changeIntroSize();
+		$(function(){
+			$("#doc").bind("play",position());
+			changeIntroSize();
+			// 窗口变化
+			window.onresize = function() {
+				position();
+				changeIntroSize();
+			};
+		});
+	
+		
 		function changeIntroSize(){
 			var $introBtn = $("#intro_btn");
 			var $introText = $(".header-btn-text");
@@ -149,11 +159,7 @@
 					.css("bottom", userB);
 			}
 		}
-		// 窗口变化
-		window.onresize = function() {
-			position();
-			changeIntroSize();
-		};
+		
 	</script>
 
 </html>
