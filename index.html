@@ -103,8 +103,9 @@
 			// 父类 宽高
 			var detailH = $detail.height();
 			var detailW = $detail.width();
-			// user 初始 left 距离
+			// user 初始 left 距离  bottom 距离
 			var userL = 19;
+			var userB = 18;
 
 			if(detailH / detailW > videoRatio) {
 				// 实际视频播放宽度
@@ -113,6 +114,11 @@
 				var realUserL = userL;
 
 				$user.css("left", realUserL);
+				var realVideoW = detailH / videoRatio;
+				// 实际user 距父类左边距离
+				var realUserL = (detailH - videoH) / 2 + userB;
+				$user.css("bttom", userB);
+				console.log(1);
 			} else {
 				// 实际视频播放宽度
 				var realVideoW = detailH / videoRatio;
@@ -120,6 +126,8 @@
 				var realUserL = (detailW - realVideoW) / 2 + userL;
 
 				$user.css("left", realUserL);
+				$user.css("bttom", userB);
+				console.log(2);
 			}
 		}
 		window.onresize = function() {
