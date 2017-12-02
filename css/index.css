@@ -4,7 +4,7 @@ html,body{
 }
 
 body{
-	background: url(../images/bg.png) no-repeat center #001124;
+	background: url(../images/bg.png) repeat center;
 }
 
 /**common**/
@@ -75,6 +75,15 @@ body{
 	bottom: 0;
 	right: 0;
 }
+/**百度地图**/
+.BMap_cpyCtrl span {
+    position: relative;
+    bottom: -10px;
+}
+
+.anchorBL img {
+    display: none;
+}
 /**视频main**/
 .view-video-main{
 	height: 100%;
@@ -95,6 +104,9 @@ body{
 .view-video-intro > .view-video-intro-header > .header-btn{
 	color: #51ffff;
 	width: 60%;
+	width: calc(100% - 40%);
+	width: -webkit-calc(100% - 40%);
+	width: -moz-calc(100% - 40%);
 	cursor: pointer;
 }
 .view-video-intro > .view-video-intro-header > .header-btn >.header-btn-text{
@@ -105,8 +117,9 @@ body{
 	text-align: center;
 	line-height: 48px;
 	font-weight: normal;
-	font-size: 18px;
+	font-size: 1.5em;
 	letter-spacing: 0.05em;
+	overflow: hidden;
 }
 .view-video-intro > .view-video-intro-header > .header-btn >img{
 	height: 48px;
@@ -115,24 +128,38 @@ body{
 .view-video-intro > .view-video-intro-header > .header-center{
 	text-align: center;
 	vertical-align: middle;
-	width: 1%;
+	width: 15%;
 	margin-top: 1px;
 }
 .view-video-intro > .view-video-intro-header > .header-center > .header-center-angle{
-	background: url(../images/header-center-angle.png);
-	width: 15px;
+	background: url(../images/header-center-angle.png) no-repeat left;
+	width: 100%;
 	height: 10px;
+	left: 12px;
+}
+.view-video-intro > .view-video-intro-header > .header-center> .header-center-bg{
+	background: url(../images/header-center-bg.png) no-repeat center;
+	width: calc(100% - 4%);
+	height: 53px;
+	position: relative;
+    right: calc(39% - 0.5px);
+    top: 5px;
 }
 .view-video-intro > .view-video-intro-header > .header-center > .header-center-angle-1{
-	background: url(../images/header-center-angle-1.png);
-	width: 21px;
+	background: url(../images/header-center-angle-1.png) no-repeat left;
+	width: 100%;
 	height: 12px;
+	top: 50px;
+	left: -22px;
 }
 .view-video-intro > .view-video-intro-header > .header-right{
 	background: url(../images/view-video-intro-header-bg.png) no-repeat top center ;
-	width: 39%;
+	width: 25%;
+	width: calc(100% - 60% - 15%);
+	width: -webkit-calc(100% - 60% - 15%);
+	width: -moz-calc(100% - 60% - 15%);
 	position: relative;
-    left: 3px;
+	right: calc(10% - 15px)
 }
 
 .view-video-intro >.view-video-intro-content{
@@ -143,7 +170,7 @@ body{
 	background: url(../images/view-video-intro-content-bottom-bg.png) no-repeat bottom center;
 }
 .view-video-intro >.view-video-intro-content> .intro-top{
-	background: url(../images/view-video-intro-content-top-bg.png) no-repeat center ;
+	background: url(../images/view-video-intro-content-top-bg.png) no-repeat top center;
 	width: 48%;
 	width: calc(100% - 42% - 31px);
 	width: -webkit-calc(100% - 42% - 31px);
@@ -200,9 +227,9 @@ body{
     background: rgba(21,111,255,0.1);
     padding: 15px 10px;
     height: 120px;
-	height: calc(100% - 31px - 53px - 64px - 37% - (11px * 4));
-	height: -moz-calc(100% - 31px - 53px - 64px - 37% - (11px * 4));
-	height: -webkit-calc(100% - 31px - 53px - 64px - 37% - (11px * 4));
+	height: calc(100% - 31px - 53px - 64px - 37% - (11px * 3) - 18px);
+	height: -moz-calc(100% - 31px - 53px - 64px - 37% - (11px * 3) - 18px);
+	height: -webkit-calc(100% - 31px - 53px - 64px - 37% - (11px * 3) - 18px);
     text-overflow: ellipsis;
 }
 /**视频右侧**/
