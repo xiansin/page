@@ -97,16 +97,38 @@
 	<script type="text/javascript">
 	
 		$(function(){
-			$("#doc").bind("play",position());
+			$("#doc").bind("play",function(){
+				position();
+			});
 			changeIntroSize();
+			changeUserVideo();
 			// 窗口变化
 			window.onresize = function() {
 				position();
 				changeIntroSize();
+				changeUserVideo();
 			};
 		});
 	
-		
+		function changeUserVideo(){
+			var $detail = $(".detail-content");
+			var $video = $('video');
+			var $user = $("#user");
+			// 视频实际高度和分辨率
+			var videoH = $video[0].videoHeight;
+			var videoW = $video[0].videoWidth;
+			var videoRatio = videoH / videoW;
+			var detailW = $detail.width();
+			var width = detailW * 0.3;
+			var height = width * videoRatio;
+			$user.css("width",width)
+			.css("height",height);
+			
+		}
+	
+		/**
+		 * 该表返回按钮字体大小 
+		 */
 		function changeIntroSize(){
 			var $introBtn = $("#intro_btn");
 			var $introText = $(".header-btn-text");
