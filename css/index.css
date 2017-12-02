@@ -1,0 +1,143 @@
+html,body{
+	height: 100%;
+	overflow: hidden;
+}
+
+body{
+	background: url(../images/bg.png) no-repeat center #001124;
+}
+
+/**common**/
+.angle{
+    background: url(../images/angle.png) no-repeat center;
+    width: 31px;
+    height: 31px;
+}
+.small-angle{
+    background: url(../images/small-angle.png) no-repeat center;
+    width: 11px;
+    height: 11px;
+}
+.rotate90{
+    transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -webkit-transform:rotate(90deg);
+    -o-transform:rotate(90deg);
+}
+.rotate180{
+    transform:rotate(180deg);
+    -ms-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    -webkit-transform:rotate(180deg);
+    -o-transform:rotate(180deg);
+}
+.rotate270{
+    transform:rotate(270deg);
+    -ms-transform:rotate(270deg);
+    -moz-transform:rotate(270deg);
+    -webkit-transform:rotate(270deg);
+    -o-transform:rotate(270deg);
+}
+.rotate360{
+    transform:rotate(360deg);
+    -ms-transform:rotate(360deg);
+    -moz-transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+}
+.no-padding{
+	padding: 0 !important;
+}
+.no-margin{
+	margin: 0 !important;
+}
+.position-absolute-top-left {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.position-relative {
+	position: relative !important;
+}
+.position-absolute-top-right {
+	position: absolute;
+	top: 0;
+	right: 0;	
+}
+.position-absolute-bottom-left {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.position-absolute-bottom-right {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+/**视频main**/
+.view-video-main{
+	height: 100%;
+	padding: 20px;
+}
+
+/**视频左侧**/
+.view-video-main>.view-video-intro{
+	width: 29%;
+	height: 100%;
+	margin-right: 1%;
+	overflow: hidden;
+	background: url(../images/view-video-intro-content-bg.png) no-repeat right center ;
+}
+.view-video-intro > .view-video-intro-header{
+	height: 10%;
+	
+}
+.view-video-intro > .view-video-intro-header > .header-btn{
+	color: #51ffff;
+	width: 60%;
+}
+.view-video-intro > .view-video-intro-header > .header-btn >img{
+	height: 100%;
+    width: 100%;
+}
+.view-video-intro > .view-video-intro-header > .header-center{
+	text-align: center;
+	vertical-align: middle;
+	width: 1%;
+	margin-top: 1px;
+}
+.view-video-intro > .view-video-intro-header > .header-center > .header-center-angle{
+	background: url(../images/header-center-angle.png);
+	width: 15px;
+	height: 10px;
+}
+.view-video-intro > .view-video-intro-header > .header-center > .header-center-angle-1{
+	background: url(../images/header-center-angle-1.png);
+	width: 21px;
+	height: 12px;
+}
+.view-video-intro > .view-video-intro-header > .header-right{
+	background: url(../images/view-video-intro-header-bg.png) no-repeat top center ;
+	width: 39%;
+	position: relative;
+    left: 3px;
+}
+
+.view-video-intro >.view-video-intro-content{
+	height: 90%;
+	background: url(../images/view-video-intro-content-bottom-bg.png) no-repeat bottom center;
+}
+.view-video-intro >.view-video-intro-content> .intro-left{
+	background: url(../images/view-video-intro-content-bg.png) no-repeat center ;
+	height: 100%;
+	width: 3px;
+}
+
+
+/**视频右侧**/
+.view-video-main>.view-video-detail{
+	width: 70%;
+	height: 100%;
+	background: rgba(255,255,255,0.3);
+}
