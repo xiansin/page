@@ -83,7 +83,7 @@ body{
 
 /**视频左侧**/
 .view-video-main>.view-video-intro{
-	width: 29%;
+	width: 30%;
 	height: 100%;
 	margin-right: 1%;
 	overflow: hidden;
@@ -91,7 +91,6 @@ body{
 }
 .view-video-intro > .view-video-intro-header{
 	height: 59px;
-	
 }
 .view-video-intro > .view-video-intro-header > .header-btn{
 	color: #51ffff;
@@ -190,8 +189,8 @@ body{
 }
 .view-video-intro >.view-video-intro-content> .map-info {
     background: rgba(4,66,160,0.1);
-    max-height: 200px;
-    height: 200px;
+    max-height: 37%;
+    height: 37%;
     margin-top: 10px !important;
 }
 .view-video-intro >.view-video-intro-content>.intro-desc {
@@ -201,14 +200,67 @@ body{
     background: rgba(21,111,255,0.1);
     padding: 15px 10px;
     height: 120px;
-	height: calc(100% - 31px - 53px - 64px - 200px - (11px * 4));
-	height: -moz-calc(100% - 31px - 53px - 64px - 200px - (11px * 4));
-	height: -webkit-calc(100% - 31px - 53px - 64px - 200px - (11px * 4));
+	height: calc(100% - 31px - 53px - 64px - 37% - (11px * 4));
+	height: -moz-calc(100% - 31px - 53px - 64px - 37% - (11px * 4));
+	height: -webkit-calc(100% - 31px - 53px - 64px - 37% - (11px * 4));
     text-overflow: ellipsis;
 }
 /**视频右侧**/
 .view-video-main>.view-video-detail{
-	width: 70%;
+	width: 69%;
 	height: 100%;
-	background: rgba(255,255,255,0.3);
+	background: url(../images/detail-header-bg.png) no-repeat bottom center;
+}
+.view-video-main>.view-video-detail>.view-video-detail-bg{
+	background: url(../images/view-video-detail-bg.png) no-repeat center;
+	height: 100%;
+	width: 4px;
+}
+.view-video-main>.view-video-detail> .detail-header{
+	background: url(../images/detail-header-bg.png) no-repeat center;
+	width: 100%;
+	height: 3px;
+	position: relative;
+	top: 0;
+}
+.view-video-main>.view-video-detail> .detail-header >img {
+	width: 100%;
+	height: 53px;
+}
+.view-video-main>.view-video-detail> .detail-header>.detail-header-text{
+	position: absolute; 
+	width: 100%; 
+	height: 48px;
+	color: #51ffff;
+	text-align: center;
+	line-height: 48px;
+	font-weight: normal;
+	letter-spacing: 0.05em;
+}
+.view-video-main>.view-video-detail >.detail-content{
+	width: 95.8%;
+	/*外边距 25px *2 左右背景 4px * 2*/
+	width: calc(100% - (15px * 2) - (4px * 2));
+	width: -webkit-calc(100% - (15px * 2) -(4px * 2));
+	width: -moz-calc(100% -  (15px * 2) - (4px * 2));
+	/*上下背景 3 * 2  底部外边距  15px 上部外边距65px*/
+	height: 86%;
+	height: calc(100% - (65px + 15px) - (3px * 2));
+	height: -webkit-calc(100% - (65px + 15px) - (3px * 2));
+	height: -moz-calc(100% - (65px + 15px) - (3px * 2));
+	margin: 0 15px;
+	background: rgba(4,66,160,0.1);
+	margin-top: 65px;
+	overflow: hidden;
+}
+.view-video-main>.view-video-detail >.detail-content>.video-doc{
+	width: 100%;
+}
+.view-video-main>.view-video-detail >.detail-content>.video-user{
+	bottom: 18px;
+    left: 19px;
+    position: absolute;
+    padding: 0;
+    max-width: 200px;
+    max-height: 500px;
 }
