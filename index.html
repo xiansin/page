@@ -115,9 +115,9 @@
 
 				$user.css("left", realUserL);
 				
-				var realVideoH = detailH / videoRatio;
+				var realVideoH = detailW / videoRatio;
 				// 实际user 距父类左边距离
-				var realUserH = (detailH - videoH) / 2 + userB;
+				var realUserH = (detailH - realVideoH) / 2 + userB;
 				
 				$user.css("bottom", realUserH);
 				console.log(1);
