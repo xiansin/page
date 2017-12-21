@@ -56,12 +56,14 @@
 		 */
 		var j = 0;
 		var dropSun = function() {
+			var sunL = document.getElementsByClassName("sun").length;
+			if(sunL > 2) return false;
 			var main = document.getElementById("main");
 			var sun = document.createElement("div");
 			var width = main.style.width;
 			var left = Math.random() * 400 + 50;
 			var id = 'sun_'+ (j++);
-			sun.innerText = "5";
+			sun.innerText = parseInt(Math.random()*10);
 			sun.className = 'sun';
 			sun.id = id;
 			sun.style.left = left + "px";
@@ -80,10 +82,12 @@
 			var i = 0;
 			var main = document.getElementById("main");
 			var sun = document.getElementById(id);
+			console.log(1,sun,i);
 			var s = () => {
 				var height = main.offsetHeight;
 				if(i + 50 >= height) {
 					sun.remove();
+					console.log(2,index);
 					clearInterval(index);
 				} else {
 					sun.style.top = i + "px";
