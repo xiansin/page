@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>321</title>
+	</head>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		
+		.box {
+			background: #ccc;
+			width: 500px;
+			height: 300px;
+			overflow: hidden;
+		}
+		
+		.sun-count {
+			background: #f00;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			line-height: 50px;
+			text-align: center;
+			color: #fff;
+		}
+		
+		.sun {
+			background: #f00;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			line-height: 50px;
+			text-align: center;
+			color: #fff;
+			position: relative;
+			cursor: pointer;
+		}
+	</style>
+
+	<body>
+		<div class="box" id="main">
+			<div class="sun-count" id="count">0</div>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		/**
+		 * 太阳掉落
+		 */
+		var j = 0;
+		var dropSun = function() {
+			var main = document.getElementById("main");
+			var sun = document.createElement("div");
+			var width = main.style.width;
+			var left = Math.random() * 400 + 50;
+			var id = 'sun_'+ (j++);
+			sun.innerText = "5";
+			sun.className = 'sun';
+			sun.id = id;
+			sun.style.left = left + "px";
+			sun.style.top = left + "px";
+			sun.setAttribute("onclick", "clickSun(this)");
+			main.appendChild(sun);
+			var index = drop(id);
+			sun.setAttribute("index",index);
+		}
+
+		/**
+		 * 向下掉 
+		 */
+		
+		var drop = function(id) {
+			var i = 0;
+			var main = document.getElementById("main");
+			var sun = document.getElementById(id);
+			var s = () => {
+				var height = main.offsetHeight;
+				if(i + 50 >= height) {
+					sun.remove();
+					clearInterval(index);
+				} else {
+					sun.style.top = i + "px";
+					i += 5;
+				}
+			}
+			var index = setInterval(function() {
+				s();
+			}, 100);
+			return index;
+		}
+
+		var clickSun = function(e) {
+			var index = e.getAttribute("index")
+			clearInterval(index);
+			var top = e.style.top ? parseInt(e.style.top) : 0;
+			var left = e.style.left ? parseInt(e.style.left) : 0;;
+			var main = document.getElementById("main");
+			var count = document.getElementById("count");
+			var s = () => {
+				if(top <= 0 && left <= 0) {
+					console.log(1);
+					var c = count.innerText;
+					var s = e.innerText;
+					count.innerText = parseInt(s) + parseInt(c);
+					e.remove();
+					clearInterval(index1);
+				}
+				if(top === left) {
+					top -= 8;
+					left -= 8;
+				} else if(top > left) {
+					top -= diff(top, left);
+				} else if(left > top) {
+					left -= diff(left, top);
+				}
+				e.style.top = top + "px";
+				e.style.left = left + "px";
+			}
+
+			var index1 = setInterval(function() {
+				s();
+			}, 30);
+		}
+
+		var diff = function(a, b) {
+			var d = 0;
+			if(a > 3 * b) {
+				d = a - (3 * b);
+			} else if(a > 2 * b) {
+				d = a - (2 * b);
+			} else if(a > b) {
+				d = a - b;
+			}
+			return d;
+		}
+		var index = setInterval(function() {
+			dropSun();
+		}, 3000);
+		// 掉落太阳
+		
+		// 开始下落
+		//drop();
+	</script>
+
+</html>
